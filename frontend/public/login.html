@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<title>Credersi-vend Admin Login</title>
+	<link rel='icon' type='image/png' href='images/favicon.png'>
+	<link rel='stylesheet' href='global.css'>
+	<style>
+		content {
+			flex-grow: 1;
+			padding: 16px 8px 8px 8px;
+		}
+		
+		header {
+			flex-grow: 0;
+		}
+		
+		.main {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 1024px;
+		}
+	
+		h1 {
+			display: inline;
+		}
+	
+		.logo {
+			float: right;
+			height: 64px;
+			width: 64px;
+		}
+	</style>
+	<script>
+		const keypress = (event) => {
+			if (event.charCode === 13) {
+				event.preventDefault();
+				login();
+			}
+		};
+
+		const login = () => {
+			const username = document.getElementById('username').value;
+			const password = document.getElementById('password').value;
+			
+			const body = JSON.stringify({username, password});
+			const headers = {'Content-Type': 'application/json'};
+			const method = 'POST';
+			const redirect = () => {window.location.href = '/'};
+			
+			document.getElementById('password').value = "";
+			fetch('/authenticate', {body, headers, method})
+				.then((response) => response.json())
+				.then((result) => redirect())
+				.catch((err) => alert('Login failed!'));
+		};
+	</script>
+</head>
+<body class="main">
+	<header>
+		<h1>Credersi-vend Admin Login</h1>
+		<img alt="Credersi Logo" class="logo" src="images/CredersiLogo.png"/>
+	</header>
+	<content>
+		<div>
+			<label for="username"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" id="username" name="username" onkeypress="keypress(event)" required autofocus>
+		</div>
+		<div>
+			<label for="password"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" id="password" name="password" onkeypress="keypress(event)" required>
+		</div>
+		<div>
+			<button onclick="login()">Login</button>
+		</div>
+	</content>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Credersi-vend Admin
+backend/src/main/resources/application.properties
+backend/src/main/resources/static
+backend/target
+frontend/public/build
+routes/dist
+routes/doc
+routes/target
+
+# Third-party
+.metadata
+.mvn
+.settings
+.vscode
+node_modules/
