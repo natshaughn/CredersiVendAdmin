@@ -6,15 +6,9 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="src" path="lib"/>
 	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
 		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
@@ -29,8 +23,8 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="./../routes/dist/VendRoutes.jar"/>
-	<classpathentry kind="lib" path="./../routes/lib/neo4j-java-driver-4.3.4.jar"/>
-	<classpathentry kind="lib" path="./../routes/lib/reactive-streams-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/neo4j-java-driver-4.3.4.jar"/>
+	<classpathentry kind="lib" path="lib/reactive-streams-1.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/VendRoutes.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

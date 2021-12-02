@@ -1,5 +1,6 @@
 # Credersi-vend Admin
-backend/src/main/resources/application.properties
+backend/lib
+**/*.properties
 backend/src/main/resources/static
 backend/target
 frontend/public/build
