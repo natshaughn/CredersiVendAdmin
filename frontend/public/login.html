@@ -36,6 +36,29 @@
 		}
 	</style>
 	<script>
+		const getParams = () => {
+			const url = new URL(window.location.href);
+
+			const domain = url.searchParams.get('domain');
+			const customer = url.searchParams.get('customer');
+			const site = url.searchParams.get('site');
+			const machines = url.searchParams.get('machines');
+			
+			const hasDomain = ((domain != null) && (domain.length > 0));
+			const hasCustomer = ((customer != null) && (customer.length > 0));
+			const hasSite = ((site != null) && (site.length > 0));
+			const hasMachines = ((machines != null) && (machines.length > 0));
+
+			const href = 
+				(hasDomain && hasCustomer && hasSite && hasMachines) ? '/?domain='+domain+'&customer='+customer+'&site='+site+'&machines='+machines.replace(/\s/g, '+') :
+				(hasDomain && hasCustomer && hasSite) ? '/?domain='+domain+'&customer='+customer+'&site='+site :
+				(hasDomain && hasCustomer) ? '/?domain='+domain+'&customer='+customer :
+				(hasDomain) ? '/?domain='+domain :
+				'/';
+			
+			return href;
+		};
+		
 		const keypress = (event) => {
 			if (event.charCode === 13) {
 				event.preventDefault();
@@ -50,7 +73,7 @@
 			const body = JSON.stringify({username, password});
 			const headers = {'Content-Type': 'application/json'};
 			const method = 'POST';
-			const redirect = () => {window.location.href = '/'};
+			const redirect = () => {window.location.href = getParams()};
 			
 			document.getElementById('password').value = "";
 			fetch('/authenticate', {body, headers, method})
