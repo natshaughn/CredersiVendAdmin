@@ -14,5 +14,3 @@ routes/target
 .settings
 .vscode
 node_modules/
-
-frontend/cypress/
