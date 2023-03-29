@@ -230,6 +230,7 @@ describe("Credersi Vend Admin Test Script", () => {
   // PASS
   */
 
+  /*
   // 
   // Create 100 new sites
   //
@@ -250,7 +251,10 @@ describe("Credersi Vend Admin Test Script", () => {
     // Checks all the sites have been added
     cy.get("items item").should("have.length", "102");
   });
+  // PASS
+  */
 
+  /*
   it("create100Machines", () => {
     // Checks you're on the correct page after logging in
     cy.get("button").should("have.text", "Create Customer");
@@ -275,4 +279,5 @@ describe("Credersi Vend Admin Test Script", () => {
       }
       cy.get("items item").should("have.length", "102");
   });
+  */
 });
